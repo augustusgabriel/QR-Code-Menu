@@ -18,15 +18,14 @@
         </div>
     </nav>
 
-    <!-- Formulário QR Code -->
-    <div class="container mt-5" style="width: 600px; border: 1px solid #d3d3d3; padding: 30px; border-radius: 10px;">
-        <form action="{% url 'generate_qr_code' %}" method="POST">
-            {% csrf_token %}
-    
-            {{ form.as_p }}
-    
-            <button class="btn btn-primary" type="submit">Gerar QR Code</button>
-        </form>
+    <!-- Resultado QR Code -->
+    <div class="container mt-5 align-itens-center text-center">
+        <h2>{{ res_name }}</h2>
+        <img src="{{ qr_url }}" alt="QR CODE" style="border: 1px solid #000000">
+        <div>
+            <a href="{{ qr_url }}" download="{{ filename }}" class="btn btn-primary mt-3">Download QR Code</a>
+            <br>
+        </div>
     </div>
 </body>
 </html>
